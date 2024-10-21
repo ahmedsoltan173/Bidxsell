@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Http\Services\Services\TicketService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -11,7 +12,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind('TicketService',function(){
+            return new TicketService;
+        });
+
     }
 
     /**
