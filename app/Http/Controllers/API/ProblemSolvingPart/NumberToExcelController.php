@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\API\ProblemSolvingPart;
 
 use App\Http\Controllers\Controller;
-use App\ResponseFormater;
+use App\Trait\ResponseFormater;
 use App\Traits\ApiResponse;
 use Illuminate\Http\Request;
 
