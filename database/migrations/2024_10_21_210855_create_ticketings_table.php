@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('ticketings', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Event::class)->constrained()->cascadeOnDelete();
-            $table->foreignIdFor(Category::class)->constrained()->cascadeOnDelete();
+            $table->morphs('relatable');
 
             $table->timestamps();
         });

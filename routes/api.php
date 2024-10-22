@@ -18,4 +18,6 @@ Route::get('jsonFlatttener/{input_json}',JsonFlattenerController::class);
 
 
 Route::get('events',[TicketController::class,'all_events']);
+Route::get('events/{id}',[TicketController::class,'show_event']);
 Route::post('events/create',[TicketController::class,'createEvent']);
+Route::post('events/ticketing',[TicketController::class,'storeTicket']);
