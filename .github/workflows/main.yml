@@ -1,0 +1,18 @@
+name: Ensure Checklist Completed
+on:
+  pull_request:
+    types: [edited, opened]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Checklist
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const body = context.payload.pull_request.body || "";
+            const incompleteItems = body.match(/- \[ \]/g);
+            if (incompleteItems && incompleteItems.length > 0) {
+              core.setFailed(`Checklist incomplete: ${incompleteItems.length} items left unchecked.`);
+            }
